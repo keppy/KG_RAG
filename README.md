@@ -89,6 +89,12 @@ cd KG_RAG
 
 ### Step 3: Install dependencies
 
+## Apple Silicon :apple: :computer:
+On apple chipsets, you will need to build the 0.4.2 version of AutoGPTQ because they do not handle our kind gracefully (see this issue: https://github.com/AutoGPTQ/AutoGPTQ/issues/223)
+```
+VERSION=0.4.2 BUILD_CUDA_EXT=0 pip install "git+https://github.com/AutoGPTQ/AutoGPTQ.git@v0.4.2"
+```
+
 ```
 pip install -r requirements.txt
 ```
@@ -188,17 +194,3 @@ python -m kg_rag.rag_based_generation.Llama.text_generation -i True -m <method-1
   year={2023}
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
