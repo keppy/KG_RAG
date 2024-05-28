@@ -7,7 +7,7 @@ name = "kg-rag-keppy"
 dynamic = ["version"]
 description = 'A portable toolbox for rare disease research extracted from the KG_RAG project'
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.7"
 license = "MIT"
 keywords = ["knowledge graph", "AI", "RAG"]
 authors = [
@@ -28,7 +28,6 @@ dependencies = [
   "torch",
   "pandas",
   "numpy",
-  "sickit-learn",
   "openai",
   "tenacity",
   "langchain",
