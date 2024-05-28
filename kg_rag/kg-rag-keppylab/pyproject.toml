@@ -1,0 +1,71 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kg-rag-keppylab"
+dynamic = ["version"]
+description = 'An extensible, portable toolbox for rare disease research, based on KG_RAG'
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+keywords = ["knowledge graph", "AI", "RAG"]
+authors = [
+  { name = "James Dominguez", email = "james@keppylab.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "click",
+  "torch",
+  "pandas",
+  "numpy",
+  "openai",
+  "tenacity",
+  "langchain",
+  "transformers",
+  "requests",
+]
+
+[project.urls]
+Documentation = "https://github.com/keppy/KG_RAG#readme"
+Issues = "https://github.com/keppy/KG_RAG/issues"
+Source = "https://github.com/keppy/KG_RAG"
+
+[tool.hatch.version]
+path = "src/kg_rag_keppylab/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/kg_rag_keppy tests}"
+
+[tool.coverage.run]
+source_pkgs = ["kg_rag_keppylab", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/kg_rag_keppylab/__about__.py",
+]
+
+[tool.coverage.paths]
+kg_rag_keppylab = ["src/kg_rag_keppylab", "*/kg-rag-keppylab/src/kg_rag_keppylab"]
+tests = ["tests", "*/kg-rag-keppylab/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
